@@ -24,6 +24,12 @@
         <feign.version>12.1</feign.version>
         <tinylog.version>2.6.0</tinylog.version>
     </properties>
+    <distributionManagement>
+        <site>
+            <id>shrek</id>
+            <url>scp://ahsan10041@shrek.unideb.hu:2222/home/ahsan10041/public_html/${project.artifactId}</url>
+        </site>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>io.github.openfeign</groupId>
@@ -57,6 +63,13 @@
         </dependency>
     </dependencies>
     <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>3.5.3</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.projectlombok</groupId>
